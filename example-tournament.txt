@@ -1,0 +1,23 @@
+# Parameters file for the tournament scheduler
+#
+# Lines starting with a pound (#) are comments and will be skipped
+#
+# The program expects the following information:
+# On the first line:      the number of rounds in the tournament
+# On the second line:     a space separated list of available table sizes
+# On the remaining lines: the names of the participating players (make sure the file contains no empty lines at the end)
+3
+3 4
+Alice
+Bob
+Charlie
+David
+Eve
+Ferguson
+Gemma
+Hilbert
+Ivy
+Jenny
+Kimberly
+Laurel
+Miles
