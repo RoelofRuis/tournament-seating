@@ -12,7 +12,7 @@ object Optimizer {
     var bestScore: Score = score(initialSchedule)
 
     while (roundIndex < initialSchedule.size) {
-      println(s"Optimizing round [$roundIndex]...")
+      println(s"Optimizing round [${roundIndex + 1}]...")
       queue.enqueue(bestSchedule)
       while (queue.nonEmpty) {
         println(s"Queue size [${queue.size}]")
