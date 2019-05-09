@@ -4,28 +4,18 @@ import app._
 
 object Main extends App {
 
-  if (args.length != 1) {
-    println("The name of the parameters file should be given")
-    System.exit(1)
-  }
+  if (args.length != 1) printAndExit("The name of the parameters file should be given")
 
   val inputFile = new File(args(0))
-
   val arguments: Either[InvalidArguments, Arguments] = IO.parseInputFile(inputFile.getCanonicalPath)
 
-  if (arguments.isLeft) {
-    println(arguments.left.get.message)
-    System.exit(1)
-  }
+  if (arguments.isLeft) printAndExit(arguments.left.get.message)
 
   arguments.map { arguments =>
     // Find best table setup
     val setups = Tables.findPossibleSetups(arguments.numPlayers, arguments.tableSizes)
 
-    if (setups.isEmpty) {
-      println(s"Cannot seat [${arguments.numPlayers}] players at tables with sizes ${arguments.tableSizes.mkString("[",",","]")}")
-      System.exit(1)
-    }
+    if (setups.isEmpty) printAndExit(s"Cannot seat [${arguments.numPlayers}] players at tables with sizes ${arguments.tableSizes.mkString("[",",","]")}")
 
     val bestSetup = Tables.pickBestSetup(setups)
 
@@ -51,6 +41,11 @@ object Main extends App {
 
     // Write data to file
     IO.writeOutputFile(new File("scheduled_" + inputFile.getName).getCanonicalPath, resultString)
+  }
+
+  def printAndExit(errorMsg: String): Unit = {
+    println(errorMsg)
+    System.exit(1)
   }
 
 }
