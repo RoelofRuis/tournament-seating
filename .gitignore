@@ -1,2 +1,5 @@
 .idea/
 **/target/
+
+# scheduled files
+scheduled_*.txt
