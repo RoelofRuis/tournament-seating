@@ -1,6 +1,6 @@
 # Parameters file for the tournament scheduler
 #
-# Lines starting with a pound (#) are comments and will be skipped
+# Lines starting with a hash (#) are comments and will be skipped
 #
 # The program expects the following information:
 # On the first line:      the number of rounds in the tournament
