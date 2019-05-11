@@ -11,7 +11,7 @@ object IO {
     Try(Source.fromFile(path).getLines.toList.filterNot(s => s.startsWith("#") || s.isEmpty))
       .toEither
       .left
-      .map { e: Throwable => InvalidArguments(s"Unable to read arguments: [${e.getMessage}") }
+      .map { e: Throwable => InvalidArguments(s"Unable to read arguments: [${e.getMessage}]") }
       .flatMap { lines: Seq[String] =>
         if (lines.length < 3) Left(InvalidArguments("Input file should contain at least 3 lines"))
         else {
