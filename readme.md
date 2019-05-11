@@ -8,4 +8,4 @@ See `example-tournament.txt` for an example
 #### Running the program
 Compile the code yourself using sbt or run the provided fat jar from the `bin` directory.
 
-Run the program with `java -jar bin/tournament-scheduler-1.0.jar example-tournament.txt`.
+Run the program with `java -jar bin/tournament-scheduler-1.1.jar example-tournament.txt`.
